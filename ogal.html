@@ -1,0 +1,567 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+       <meta content="width=device-width, initial-scale=1.0" name="viewport">
+       <meta content="" name="keywords">
+       <meta content="" name="description">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.13.1/datatables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.3.1/css/fixedHeader.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css">
+          
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+        
+        <title>Pendaftaran Santri Baru</title>
+    </head>
+    <body> 
+                <div
+     class="container-fluid nav-bar bg-transparent">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                <div class="icon p-2 me-2">
+                    <img class=" " src="logo.png" alt="Icon" style="width: 102px; height: 135px;">
+                </div>
+                <h1 class="m-0 text-primary">MTs Ra'Iyatul Husnan</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="ogal.html" class="nav-item nav-link active">Pendaftaran Santri Baru</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Aktivitas</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="property-list.html" class="dropdown-item">Akademik</a>
+                            <a href="property-type.html" class="dropdown-item">Keagamaan</a>
+                            <a href="property-agent.html" class="dropdown-item">Tahfidaz</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <button type="button" class="btn btn-success" id="tambahProduk">
+                    +TAMBAH SANTRI
+                        </button>
+            </div>
+        </nav>
+    
+        <div class="container">
+                       
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    
+                    <!-- Button trigger modal -->
+                   <br>
+                    <br>
+
+                    <table
+                        id="gogo"
+                        class="table table-striped table-bordered mt-2 mb-2"
+                        style="width: 100%"
+                    ></table>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+       <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Tambah Produk</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form>
+                            <input type="hidden" class="form-control" id="idProduk">
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="namaProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">NIK</label>
+                                <input type="number" class="form-control" id="nikProduk" required minlength="16" maxlength="16">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">NISN</label>
+                                <input type="text" class="form-control" id="nisnproduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">No KIP</label>
+                                <input type="text" class="form-control" id="nokipProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tempat Lahir</label>
+                                <input type="text" class="form-control" id="tempatlahirProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Tanggal Lahir</label>
+                                <input type="date" class="form-control" id="tanggallahirProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Jenis Kelamin</label>
+                                <select class="form-control" id="jeniskelaminProduk" required>
+                                    <option value="">Pilih Jenis Kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Alamat</label>
+                                <input type="text" class="form-control" id="alamatProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">No KK</label>
+                                <input type="number" class="form-control" id="nokkProduk" required minlength="16" maxlength="16">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nama Ayah</label>
+                                <input type="text" class="form-control" id="namaayahProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">NIK Ayah</label>
+                                <input type="number" class="form-control" id="nikayahProduk" required minlength="16" maxlength="16">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Pekerjaan Ayah</label>
+                                <input type="text" class="form-control" id="pekerjaanayahProduk" required>
+                             <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Penghasilan Ayah</label>
+                                    <input type="text" class="form-control" id="penghasilanayahProduk" required>
+                            </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Nama Ibu</label>
+                                <input type="text" class="form-control" id="namaibuProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">NIK Ibu</label>
+                                <input type="number" class="form-control" id="nikibuProduk" required minlength="16" maxlength="16">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Pekerjaan Ibu</label>
+                                <input type="text" class="form-control" id="pekerjaanibuProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Penghasilan Ibu</label>
+                                <input type="text" class="form-control" id="penghasilanibuProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Alamat Orang Tua</label>
+                                <input type="text" class="form-control" id="alamatortuProduk" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">No HP Orang Tua</label>
+                                <input type="number" class="form-control" id="nohportuaProduk" required minlength="10" maxlength="12">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Simpan</button>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal" id="viewModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Detail Santri</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <p><strong>Nama Lengkap:</strong> <span id="viewnama"></span></p>
+                        <p><strong>NIK:</strong> <span id="viewnik"></span></p>
+                        <p><strong>NISN:</strong> <span id="viewnisn"></span></p>
+                        <p><strong>No KIP:</strong> <span id="viewnokip"></span></p>
+                        <p><strong>Tempat Lahir:</strong> <span id="viewtempatlahir"></span></p>
+                        <p><strong>Tanggal Lahir:</strong> <span id="viewtanggallahir"></span></p>
+                        <p><strong>Jenis Kelamin:</strong> <span id="viewjeniskelamin"></span></p>
+                        <p><strong>Alamat:</strong> <span id="viewalamat"></span></p>
+                        <p><strong>No KK:</strong> <span id="viewnokk"></span></p>
+                        <p><strong>Nama Ayah:</strong> <span id="viewnamaayah"></span></p>
+                        <p><strong>NIK Ayah:</strong> <span id="viewnikayah"></span></p>
+                        <p><strong>Pekerjaan Ayah:</strong> <span id="viewpekerjaanayah"></span></p>
+                        <p><strong>Penghasilan Ayah:</strong> <span id="viewpenghasilanayah"></span></p>
+                        <p><strong>Nama Ibu:</strong> <span id="viewnamaibu"></span></p>
+                        <p><strong>NIK Ibu:</strong> <span id="viewnikibu"></span></p>
+                        <p><strong>Pekerjaan Ibu:</strong> <span id="viewpekerjaanibu"></span></p>
+                        <p><strong>Penghasilan Ibu:</strong> <span id="viewpenghasilanibu"></span></p>
+                        <p><strong>Alamat Orang Tua:</strong> <span id="viewalamatortu"></span></p>
+                        <p><strong>No HP Orang Tua:</strong> <span id="viewnohportua"></span></p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="printDetail">Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jqc-1.12.4/dt-1.13.1/datatables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/fixedheader/3.3.1/js/dataTables.fixedHeader.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.4.0/js/responsive.bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                const BASE_URL = "https://script.google.com/macros/s/AKfycbxp4FIuwTmzOx5IWZTH4DPuvM9q8vCd4oYvP52Ah38YghxMXY92oqI2CKB69W0jLF34/exec";
+                    const table = $("#gogo").DataTable({
+                    ajax: BASE_URL + "?action=get-product",
+                    order: [[0, 'asc']], // Ensure the table is sorted by the first column (ID) in ascending order
+                    columns: [
+                        {
+                        title: "No",
+                        data: null,
+                        render: function (data, type, row, meta) {
+                        return meta.row + 1;
+                         }
+                        },
+                        {
+                        title:"ID",
+                        data:"id"
+                        },
+                        {
+                        title:"Nama Lengkap",
+                        data:"nama"
+                        },
+                        {
+                        title:"NIK",
+                        data:"nik"
+                        },
+                        {
+                        title:"NISN",
+                        data:"nisn"
+                        },
+                        {
+                        title:"NO KIP",
+                        data:"nokip"
+                        },
+                        {
+                        title:"Edit",
+                        target: -1,
+                        data: null,
+                        defaultContent: '<button class="btn btn-warning btn-sm" id="edit">Edit</button>'              
+                     },
+                     {
+                        title:"Delete",
+                        target: -1,
+                        data: null,
+                        defaultContent: '<button class="btn btn-danger btn-sm" id="delete">Delete</button>'
+                    },
+                    {
+                        title:"View",
+                        target: -1,
+                        data: null,
+                        defaultContent: '<button class="btn btn-info btn-sm" id="view">View</button>'
+                    },
+                    
+                    
+                        
+                    
+                    ], 
+                rowId: "Id",
+                liveAjax: true,
+                responsive: true
+                              
+                })
+
+                function showLoading() {
+                    $('.loading-overlay').fadeIn();
+                }
+
+                function hideLoading() {
+                    $('.loading-overlay').fadeOut();
+                }
+
+                function printDetailSantri(data) {
+                    const printWindow = window.open('', '_blank');
+                    printWindow.document.write('<html><head><title>Detail Santri</title>');
+                    printWindow.document.write('<style>');
+                    printWindow.document.write('table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 18px; text-align: left; }');
+                    printWindow.document.write('table, th, td { border: 1px solid black; padding: 8px; }');
+                    printWindow.document.write('th { background-color: #f2f2f2; color: #333; font-weight: bold; }');
+                    printWindow.document.write('tr:nth-child(even) { background-color: #f9f9f9; }');
+                    printWindow.document.write('tr:hover { background-color: #f1f1f1; }');
+                    printWindow.document.write('</style>');
+                    printWindow.document.write('</head><body>');
+                    printWindow.document.write('<div style="text-align: center;">');
+                    printWindow.document.write('<img src="logo.png" alt="Logo" style="width: 102px; height: 135px;">');
+                    printWindow.document.write('<h1>MTs Ra\'Iyatul Husnan</h1>');
+                    printWindow.document.write('<h2>Detail Santri</h2>');
+                    printWindow.document.write('</div>');
+                    printWindow.document.write('<table>');
+                    printWindow.document.write('<tr><th>Identitas</th><th>Keterangan</th></tr>');
+                    printWindow.document.write('<tr><td>Nama Lengkap</td><td>' + data.nama + '</td></tr>');
+                    printWindow.document.write('<tr><td>NIK</td><td>' + data.nik + '</td></tr>');
+                    printWindow.document.write('<tr><td>NISN</td><td>' + data.nisn + '</td></tr>');
+                    printWindow.document.write('<tr><td>No KIP</td><td>' + data.nokip + '</td></tr>');
+                    printWindow.document.write('<tr><td>Tempat Lahir</td><td>' + data.tempatlahir + '</td></tr>');
+                    printWindow.document.write('<tr><td>Tanggal Lahir</td><td>' + data.tanggallahir + '</td></tr>');
+                    printWindow.document.write('<tr><td>Jenis Kelamin</td><td>' + data.jeniskelamin + '</td></tr>');
+                    printWindow.document.write('<tr><td>Alamat</td><td>' + data.alamat + '</td></tr>');
+                    printWindow.document.write('<tr><td>No KK</td><td>' + data.nokk + '</td></tr>');
+                    printWindow.document.write('<tr><td>Nama Ayah</td><td>' + data.namaayah + '</td></tr>');
+                    printWindow.document.write('<tr><td>NIK Ayah</td><td>' + data.nikayah + '</td></tr>');
+                    printWindow.document.write('<tr><td>Pekerjaan Ayah</td><td>' + data.pekerjaanayah + '</td></tr>');
+                    printWindow.document.write('<tr><td>Penghasilan Ayah</td><td>' + data.penghasilanayah + '</td></tr>');
+                    printWindow.document.write('<tr><td>Nama Ibu</td><td>' + data.namaibu + '</td></tr>');
+                    printWindow.document.write('<tr><td>NIK Ibu</td><td>' + data.nikibu + '</td></tr>');
+                    printWindow.document.write('<tr><td>Pekerjaan Ibu</td><td>' + data.pekerjaanibu + '</td></tr>');
+                    printWindow.document.write('<tr><td>Penghasilan Ibu</td><td>' + data.penghasilanibu + '</td></tr>');
+                    printWindow.document.write('<tr><td>Alamat Orang Tua</td><td>' + data.alamatortu + '</td></tr>');
+                    printWindow.document.write('<tr><td>No HP Orang Tua</td><td>' + data.nohportua + '</td></tr>');
+                    printWindow.document.write('</table>');
+                    printWindow.document.write('</body></html>');
+                    printWindow.document.close();
+                    printWindow.print();
+                }
+
+                $('#gogo tbody').on('click', 'button#delete', function () {
+                    const data = table.row($(this).parents('tr')).data();
+                    if (confirm('Are you sure you want to delete this record?')) {
+                        showLoading();
+                        $.ajax({
+                            url: BASE_URL + "?action=delete&id=" + data.id,
+                            method: "GET",
+                            success: function(response) {
+                                table.ajax.reload();
+                                hideLoading();
+                            },
+                            error: function() {
+                                hideLoading();
+                                alert('Failed to delete data.');
+                            }
+                        });
+                    }
+                });
+
+                $('#gogo tbody').on('click', 'button#view', function () {
+                    const data = table.row($(this).parents('tr')).data();
+                    // Populate view modal with data
+                    $('#viewnama').text(data.nama);
+                    $('#viewnik').text(data.nik);
+                    $('#viewnisn').text(data.nisn);
+                    $('#viewnokip').text(data.nokip);
+                    $('#viewtempatlahir').text(data.tempatlahir);
+                    $('#viewtanggallahir').text(data.tanggallahir);
+                    $('#viewjeniskelamin').text(data.jeniskelamin);
+                    $('#viewalamat').text(data.alamat);
+                    $('#viewnokk').text(data.nokk);
+                    $('#viewnamaayah').text(data.namaayah);
+                    $('#viewnikayah').text(data.nikayah);
+                    $('#viewpekerjaanayah').text(data.pekerjaanayah);
+                    $('#viewpenghasilanayah').text(data.penghasilanayah);
+                    $('#viewnamaibu').text(data.namaibu);
+                    $('#viewnikibu').text(data.nikibu);
+                    $('#viewpekerjaanibu').text(data.pekerjaanibu);
+                    $('#viewpenghasilanibu').text(data.penghasilanibu);
+                    $('#viewalamatortu').text(data.alamatortu);
+                    $('#viewnohportua').text(data.nohportua);
+                    // Show view modal
+                    $('#viewModal').modal('show');
+                   ;
+                });
+
+                $('#gogo tbody').on('click', 'button#print', function () {
+                    const data = table.row($(this).parents('tr')).data();
+                    printDetailSantri(data);
+                });
+
+                $('#printDetail').on('click', function() {
+                    const data = {
+                        nama: $('#viewnama').text(),
+                        nik: $('#viewnik').text(),
+                        nisn: $('#viewnisn').text(),
+                        nokip: $('#viewnokip').text(),
+                        tempatlahir: $('#viewtempatlahir').text(),
+                        tanggallahir: $('#viewtanggallahir').text(),
+                        jeniskelamin: $('#viewjeniskelamin').text(),
+                        alamat: $('#viewalamat').text(),
+                        nokk: $('#viewnokk').text(),
+                        namaayah: $('#viewnamaayah').text(),
+                        nikayah: $('#viewnikayah').text(),
+                        pekerjaanayah: $('#viewpekerjaanayah').text(),
+                        penghasilanayah: $('#viewpenghasilanayah').text(),
+                        namaibu: $('#viewnamaibu').text(),
+                        nikibu: $('#viewnikibu').text(),
+                        pekerjaanibu: $('#viewpekerjaanibu').text(),
+                        penghasilanibu: $('#viewpenghasilanibu').text(),
+                        alamatortu: $('#viewalamatortu').text(),
+                        nohportua: $('#viewnohportua').text()
+                    };
+                    printDetailSantri(data);
+                });
+
+                $('#tambahProduk').on('click', () => {
+                    clear();
+                    $('#myModal').modal('show');
+                    $('#myModal .modal-title').text('Tambah Data Santri');
+                })
+                $('#gogo tbody').on('click', '#edit', function() {
+                    const data = table.row($(this).parents('tr')).data();
+                    $('#idProduk').val(data.id);
+                    $('#namaProduk').val(data.nama);
+                    $('#nikProduk').val(data.nik);
+                    $('#nisnproduk').val(data.nisn);
+                    $('#nokipProduk').val(data.nokip);
+                    $('#tempatlahirProduk').val(data.tempatlahir);
+                    $('#tanggallahirProduk').val(data.tanggallahir);
+                    $('#jeniskelaminProduk').val(data.jeniskelamin);
+                    $('#alamatProduk').val(data.alamat);
+                    $('#nokkProduk').val(data.nokk);
+                    $('#namaayahProduk').val(data.namaayah);
+                    $('#nikayahProduk').val(data.nikayah);
+                    $('#pekerjaanayahProduk').val(data.pekerjaanayah);
+                    $('#penghasilanayahProduk').val(data.penghasilanayah);
+                    $('#namaibuProduk').val(data.namaibu);
+                    $('#nikibuProduk').val(data.nikibu);
+                    $('#pekerjaanibuProduk').val(data.pekerjaanibu);                    
+                    $('#penghasilanibuProduk').val(data.penghasilanibu);
+                    $('#alamatortuProduk').val(data.alamatortu);
+                    $('#nohportuProduk').val(data.nohportu);
+                    $('#nohportuaProduk').val(data.nohportua);
+                    $('#myModal').modal('show');
+                    $('#myModal .modal-title').text('Edit Data Santri');
+                    console.log(data);
+                    
+                })
+                $('.modal-footer .btn-success').on('click', () =>{
+                    const namaProduk = $('#namaProduk').val();
+                    const nikProduk = $('#nikProduk').val();
+                    const nisnProduk = $('#nisnproduk').val();
+                    const nokipProduk = $('#nokipProduk').val();
+                    const tempatlahirProduk = $('#tempatlahirProduk').val();
+                    const tanggallahirProduk = $('#tanggallahirProduk').val();
+                    const jeniskelaminProduk = $('#jeniskelaminProduk').val();
+                    const alamatProduk = $('#alamatProduk').val();
+                    const nokkProduk = $('#nokkProduk').val();
+                    const namaayahProduk = $('#namaayahProduk').val();
+                    const nikayahProduk = $('#nikayahProduk').val();
+                    const pekerjaanayahProduk = $('#pekerjaanayahProduk').val();
+                    const penghasilanayahProduk = $('#penghasilanayahProduk').val();
+                    const namaibuProduk = $('#namaibuProduk').val();
+                    const nikibuProduk = $('#nikibuProduk').val();
+                    const pekerjaanibuProduk = $('#pekerjaanibuProduk').val();                    
+                    const penghasilanibuProduk = $('#penghasilanibuProduk').val();
+                    const alamatortuProduk = $('#alamatortuProduk').val();
+                    const nohportuaProduk = $('#nohportuaProduk').val();
+                    const idProduk = $('#idProduk').val();
+
+                    if (namaProduk ==''|| nikProduk ==''|| nisnProduk ==''|| nokipProduk ==''|| tempatlahirProduk ==''|| tanggallahirProduk ==''|| jeniskelaminProduk ==''|| alamatProduk ==''|| nokkProduk ==''|| namaayahProduk ==''|| nikayahProduk ==''|| pekerjaanayahProduk ==''|| penghasilanayahProduk ==''|| namaibuProduk ==''|| nikibuProduk ==''|| pekerjaanibuProduk ==''|| penghasilanibuProduk ==''|| alamatortuProduk ==''|| nohportuaProduk ==''){
+                        alert('Data tidak boleh kosong')
+                        return;
+                    }
+                    let apiUrl='';
+
+                    if (idProduk){
+                        apiUrl=`${BASE_URL}?action=update&nama=${namaProduk}&nik=${nikProduk}&nisn=${nisnProduk}&nokip=${nokipProduk}&tempatlahir=${tempatlahirProduk}&tanggallahir=${tanggallahirProduk}&jeniskelamin=${jeniskelaminProduk}&alamat=${alamatProduk}&nokk=${nokkProduk}&namaayah=${namaayahProduk}&nikayah=${nikayahProduk}&pekerjaanayah=${pekerjaanayahProduk}&penghasilanayah=${penghasilanayahProduk}&namaibu=${namaibuProduk}&nikibu=${nikibuProduk}&pekerjaanibu=${pekerjaanibuProduk}&penghasilanibu=${penghasilanibuProduk}&alamatortu=${alamatortuProduk}&nohportua=${nohportuaProduk}&id=${idProduk}`;                       
+                        console.log(apiUrl);
+                    }
+                        else {
+                        apiUrl=`${BASE_URL}?action=insert&nama=${namaProduk}&nik=${nikProduk}&nisn=${nisnProduk}&nokip=${nokipProduk}&tempatlahir=${tempatlahirProduk}&tanggallahir=${tanggallahirProduk}&jeniskelamin=${jeniskelaminProduk}&alamat=${alamatProduk}&nokk=${nokkProduk}&namaayah=${namaayahProduk}&nikayah=${nikayahProduk}&pekerjaanayah=${pekerjaanayahProduk}&penghasilanayah=${penghasilanayahProduk}&namaibu=${namaibuProduk}&nikibu=${nikibuProduk}&pekerjaanibu=${pekerjaanibuProduk}&penghasilanibu=${penghasilanibuProduk}&alamatortu=${alamatortuProduk}&nohportua=${nohportuaProduk}`;      
+                    
+                    }
+
+                    showLoading();
+                    $.getJSON(apiUrl, function(result){
+                        alert(result.message);
+                        location.reload();
+                        hideLoading();
+                    }).fail(function() {
+                        hideLoading();
+                        alert('Failed to save data.');
+                    });
+                })
+
+            })
+            function clear (){
+                    $('#idProduk').val('');
+                    $('#namaProduk').val('');
+                    $('#nikProduk').val('');
+                    $('#nisnproduk').val('');
+                    $('#nokipProduk').val('');
+                    $('#tempatlahirProduk').val('');
+                    $('#tanggallahirProduk').val('');
+                    $('#jeniskelaminProduk').val('');
+                    $('#alamatProduk').val('');
+                    $('#nokkProduk').val('');
+                    $('#namaayahProduk').val('');
+                    $('#nikayahProduk').val('');
+                    $('#pekerjaanayahProduk').val('');
+                    $('#namaibuProduk').val('');
+                    $('#nikibuProduk').val('');
+                    $('#pekerjaanibuProduk').val('');
+                    $('#penghasilanayahProduk').val('');
+                    $('#penghasilanibuProduk').val('');
+                    $('#alamatortuProduk').val('');
+                    $('#nohportuProduk').val('s');
+                    
+            }
+
+            
+        </script>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">MTs Ra'Iyatul Husnan</h1>
+                    <p>Santu, Berprestasi, Berjiwa Qur'ani</p>
+                </div>
+                
+                <!-- JavaScript Libraries -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>          
+    </body>
+</html>
